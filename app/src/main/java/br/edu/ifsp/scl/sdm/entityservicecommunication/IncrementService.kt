@@ -14,7 +14,10 @@ class IncrementService : Service() {
         override fun handleMessage(msg: Message) {
             super.handleMessage(msg)
             msg.data.getInt("VALUE").also {
-                InterEntityCommunication.valueLiveData.postValue(it + 1) //livedata que continua a ser observado no main activity
+//                InterEntityCommunication.valueLiveData.postValue(it + 1) //livedata que continua a ser observado no main activity
+                Intent("INCREMENT_VALUE_ACTION").putExtra("VALUE", it + 1).apply {
+                    sendBroadcast(this)
+                }
             } //o trabalho do serviço vai ser executado numa thread separada
             stopSelf()
         }
