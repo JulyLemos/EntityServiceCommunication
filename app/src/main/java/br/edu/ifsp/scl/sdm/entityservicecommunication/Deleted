@@ -1,0 +1,34 @@
+Arquivos do IncrementBoundService
+
+
+
+//    private inner class IncrementBoundServiceHandler(looper: Looper): Handler(looper){
+//        override fun handleMessage(msg: Message) {
+//            super.handleMessage(msg)
+//
+//            msg.replyTo?.also {
+//                clientMessenger = it
+//            }
+//
+//            msg.data.getInt("VALUE", -1).also {
+//                if(it != -1) {
+//                Log.v(this.javaClass.simpleName, "Returning incremented value.")
+//                clientMessenger.send(Message.obtain().apply { data.putInt("VALUE", it + 1) })
+//                }
+//            }
+//        }
+//    }
+
+//    private lateinit var ibsMessenger: Messenger
+//    private lateinit var ibsHandler: IncrementBoundServiceHandler
+//    private lateinit var clientMessenger: Messenger
+
+
+-> Não precisa dele pois, não vai trabalhar com uma thread diferente
+//    override fun onCreate() {
+//        super.onCreate()
+//        HandlerThread(this.javaClass.simpleName).apply {
+//            start()
+//            ibsHandler = IncrementBoundServiceHandler(looper)
+//        }
+//    }
